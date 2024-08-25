@@ -4,10 +4,14 @@ const ApiError = require("../utils/ApiError");
  const OpenAI  = require('openai');
 const xlsx = require('xlsx');
 const config = require("../config/config");
+const path = require('path');
 
 const openai = new OpenAI({
   apiKey: config.openaiapikey  // This is also the default, can be omitted
 });
+
+const filePath = path.resolve(__dirname, '../assests/profitloss.xlsx');
+
 
 const getChats = async() =>{
 
@@ -21,7 +25,7 @@ const getChats = async() =>{
 const createChat = async(userQuestion) => {
 
 // Load the Excel data
-  const workbook = xlsx.readFile('../assests/profitloss.xlsx');
+  const workbook = xlsx.readFile(filePath);
   const sheet_name_list = workbook.SheetNames;
   const data = xlsx.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
 
