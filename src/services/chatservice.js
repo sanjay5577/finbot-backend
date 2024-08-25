@@ -40,14 +40,14 @@ const response = await openai.chat.completions.create({
   model: 'gpt-4',
   messages: [
     { role: 'system', content: 'You are a financial assistant.' },
-    { role: 'user', content: `${context} ${message}` },
+    { role: 'user', content: `${context} ${userQuestion.question}` },
   ],
 });
 
   const botResponse = response.choices[0].message.content;
 
   // Save the conversation
-  const chat = new Chat({ userMessage: message, botResponse });
+  const chat = new Chat({ userMessage: userQuestion.question, botResponse });
   await chat.save();
 
 return botResponse;
