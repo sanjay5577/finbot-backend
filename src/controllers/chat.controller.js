@@ -8,7 +8,7 @@ const ApiError = require("../utils/ApiError");
 const getchats = catchAsync(async( req, res) =>{
 
     const chats = await chatService.getChats();
-    if(!chats){
+    if(chats.length === 0){
       throw new ApiError(httpStatus.NOT_FOUND, "chats not found");
     }
 
