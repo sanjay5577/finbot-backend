@@ -81,7 +81,7 @@ function extractDataFromExcel(data, question) {
   
     // Extract the category from the message
     for (let c of metrics) {
-      if (lowerCaseQuestionS.includes(c)) {
+      if (lowerCaseQuestion.includes(c)) {
         category = c;
         break;
       }
