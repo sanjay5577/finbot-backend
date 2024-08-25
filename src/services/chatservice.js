@@ -21,7 +21,7 @@ const getChats = async() =>{
 const createChat = async(userQuestion) => {
 
 // Load the Excel data
-  const workbook = xlsx.readFile('../../assests/Monthly-Profit-Loss-Statement-Template.xlsx');
+  const workbook = xlsx.readFile('../assests/profitloss.xlsx');
   const sheet_name_list = workbook.SheetNames;
   const data = xlsx.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
 
