@@ -17,7 +17,7 @@ const getchats = catchAsync(async( req, res) =>{
 
 
 const addchat = catchAsync(async (req, res) => {
-  const chatDetails = await chatService.createchat(
+  const chatDetails = await chatService.createChat(
     req.body
   );
   // const chatDetails = "huui"
