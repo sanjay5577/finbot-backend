@@ -1,0 +1,1 @@
+module.exports.chatService = require("./chatservice");

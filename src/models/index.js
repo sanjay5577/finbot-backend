@@ -1,0 +1,1 @@
+module.exports.Chat = require('./chat.model').Chat
