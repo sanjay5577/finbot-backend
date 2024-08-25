@@ -1,15 +1,9 @@
 const { Chat } = require("../models");
 const httpStatus = require("http-status");
 const ApiError = require("../utils/ApiError");
-//  const { Configuration, OpenAIApi } = require('openai');
  const OpenAI  = require('openai');
 const xlsx = require('xlsx');
 const config = require("../config/config");
-
-// const configuration = new Configuration({
-//     apiKey: config.openaiapikey 
-//   });
-//   const openai = new OpenAIApi(configuration);
 
 const openai = new OpenAI({
   apiKey: config.openaiapikey  // This is also the default, can be omitted
@@ -27,7 +21,7 @@ const getChats = async() =>{
 const createChat = async(userQuestion) => {
 
 // Load the Excel data
-  const workbook = xlsx.readFile('../assests/Monthly-Profit-Loss-Statement-Template.xlsx');
+  const workbook = xlsx.readFile('../../assests/Monthly-Profit-Loss-Statement-Template.xlsx');
   const sheet_name_list = workbook.SheetNames;
   const data = xlsx.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
 
