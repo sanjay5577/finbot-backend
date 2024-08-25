@@ -38,15 +38,15 @@ const createChat = async(userQuestion) => {
   const context = `Based on the balance sheet, ${extractedData}.`;
 
   // Call ChatGPT
-  const response = await openai.createChatCompletion({
-    model: 'gpt-4',
-    messages: [
-      { role: 'system', content: 'You are a financial assistant.' },
-      { role: 'user', content: `${context} ${message}` },
-    ],
-  });
+const response = await openai.chat.completions.create({
+  model: 'gpt-4',
+  messages: [
+    { role: 'system', content: 'You are a financial assistant.' },
+    { role: 'user', content: `${context} ${message}` },
+  ],
+});
 
-  const botResponse = response.data.choices[0].message.content;
+  const botResponse = response.choices[0].message.content;
 
   // Save the conversation
   const chat = new Chat({ userMessage: message, botResponse });
