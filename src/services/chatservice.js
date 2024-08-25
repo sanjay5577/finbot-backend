@@ -37,7 +37,7 @@ const createChat = async(userQuestion) => {
 
   // Call ChatGPT
 const response = await openai.chat.completions.create({
-  model: 'gpt-4',
+  model: 'gpt-3.5-turbo',
   messages: [
     { role: 'system', content: 'You are a financial assistant.' },
     { role: 'user', content: `${context} ${userQuestion.question}` },
